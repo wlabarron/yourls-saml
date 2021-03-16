@@ -27,16 +27,16 @@ Here's an overview. You'll have to modify to fit your environment.
 4. Create admin users by adding them to their `$yourls_user_passwords` array in your normal YOURLS config. Set their username to be the same as their SAML Name ID, and pick something long and random for the password since they're not going to be using that anyway.
 5. Serve the contents of `yourls-saml/public` on `https://sho.rt/admin/auth`, where `https://sho.rt/` is your YOURLS domain. In nginx, this might look like:
    ``` nginx
-   location /admin/auth {
-   		alias /var/www/yourls/user/plugins/yourls-saml/public;
+    location /admin/auth {
+        alias /var/www/yourls/user/plugins/yourls-saml/public;
 
-   		location ~ \.php$ {
-   			include fastcgi_params;
+        location ~ \.php$ {
+            include fastcgi_params;
             fastcgi_index index.php;
-   			fastcgi_param SCRIPT_FILENAME $request_filename;
-   			fastcgi_param DOCUMENT_ROOT /var/www/yourls/user/plugins/yourls-saml/public;
-   			fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
-           	}
-   	}
+            fastcgi_param SCRIPT_FILENAME $request_filename;
+            fastcgi_param DOCUMENT_ROOT /var/www/yourls/user/plugins/yourls-saml/public;
+            fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        }
+    }
    ```
 6. Enable the plugin in the YOURLS admin interface.
