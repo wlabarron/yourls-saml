@@ -1,5 +1,5 @@
 # YOURLS SAML Authentication
-Log in to YOURLS using your SAML IdP.
+Log in to [YOURLS](https://yourls.org) using your SAML IdP.
 
 Users authenticated by SAML have access to the whole admin interface, excluding the plugins manager, so you can use access rules at your IdP to control who can make short URLs.
 
