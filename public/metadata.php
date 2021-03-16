@@ -8,7 +8,7 @@ require(dirname(__DIR__).'/vendor/autoload.php');
 require_once(dirname(__DIR__).'/settings.php');
 
 try {
-    $auth = new \OneLogin\Saml2\Auth($samlSettings);
+    $auth = new \OneLogin\Saml2\Auth($wlabarron_saml_settings);
     $settings = $auth->getSettings();
     $metadata = $settings->getSPMetadata();
     $errors = $settings->validateMetadata($metadata);

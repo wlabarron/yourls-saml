@@ -1,6 +1,8 @@
 <?php
 
-$samlSettings = array (
+$wlabarron_saml_yourls_base_url = "https://sho.rt/";
+
+$wlabarron_saml_settings = array (
     // If 'strict' is True, then the PHP Toolkit will reject unsigned
     // or unencrypted messages if it expects them signed or encrypted
     // Also will reject the messages if not strictly follow the SAML
@@ -14,17 +16,17 @@ $samlSettings = array (
     // the BaseURL of the view that process the SAML Message.
     // Ex. http://sp.example.com/
     //     http://example.com/sp/
-    'baseurl' => null,
+    'baseurl' => $wlabarron_saml_yourls_base_url . 'admin/auth',
 
     // Service Provider Data that we are deploying
     'sp' => array (
         // Identifier of the SP entity  (must be a URI)
-        'entityId' => '',
+        'entityId' => $wlabarron_saml_yourls_base_url . 'admin/auth/metadata.php',
         // Specifies info about where and how the <AuthnResponse> message MUST be
         // returned to the requester, in this case our SP.
         'assertionConsumerService' => array (
             // URL Location where the <Response> from the IdP will be returned
-            'url' => '',
+            'url' => $wlabarron_saml_yourls_base_url . 'admin/auth/acs.php',
             // SAML protocol binding to be used when returning the <Response>
             // message.  Onelogin Toolkit supports for this endpoint the
             // HTTP-POST binding only
@@ -33,24 +35,24 @@ $samlSettings = array (
         // If you need to specify requested attributes, set a
         // attributeConsumingService. nameFormat, attributeValue and
         // friendlyName can be omitted. Otherwise remove this section.
-        "attributeConsumingService"=> array(
-                "serviceName" => "SP test",
-                "serviceDescription" => "Test Service",
-                "requestedAttributes" => array(
-                    array(
-                        "name" => "",
-                        "isRequired" => false,
-                        "nameFormat" => "",
-                        "friendlyName" => "",
-                        "attributeValue" => ""
-                    )
-                )
-        ),
+        // "attributeConsumingService"=> array(
+        //        "serviceName" => "SP test",
+        //        "serviceDescription" => "Test Service",
+        //        "requestedAttributes" => array(
+        //            array(
+        //                "name" => "",
+        //                "isRequired" => false,
+        //                "nameFormat" => "",
+        //                "friendlyName" => "",
+        //                "attributeValue" => ""
+        //          )
+        //      )
+        //),
         // Specifies info about where and how the <Logout Response> message MUST be
         // returned to the requester, in this case our SP.
         'singleLogoutService' => array (
             // URL Location where the <Response> from the IdP will be returned
-            'url' => '',
+            'url' => $wlabarron_saml_yourls_base_url . 'admin/auth/slo.php',
             // SAML protocol binding to be used when returning the <Response>
             // message.  Onelogin Toolkit supports for this endpoint the
             // HTTP-Redirect binding only

@@ -14,7 +14,7 @@ function wlabarron_saml_authenticate() {
         session_start();
         require('vendor/autoload.php');
         require_once('settings.php');
-        $auth = new \OneLogin\Saml2\Auth($samlSettings);
+        $auth = new \OneLogin\Saml2\Auth($wlabarron_saml_settings);
         
         // If not signed in, sign in
     	if (!isset($_SESSION['samlNameId'])) $auth->login();
