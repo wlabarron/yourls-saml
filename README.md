@@ -3,7 +3,7 @@ Log in to YOURLS using your SAML IdP.
 
 Users authenticated by SAML have access to the whole admin interface, excluding the plugins manager, so you can use access rules at your IdP to control who can make short URLs.
 
-Admins have access everything including the plugins manager. To make a user an admin, add their details to the `$yourls_user_passwords` array in your normal YOURLS config. Set their username to be the same as their SAML Name ID, and pick something long and random for the password since they're not going to be using that anyway.
+Admins have access to everything including the plugins manager. To make a user an admin, add their details to the `$yourls_user_passwords` array in your normal YOURLS config. Set their username to be the same as their SAML Name ID, and pick something long and random for the password since they're not going to be using that anyway.
 
 Single logout is not implemented.
 
