@@ -1,11 +1,11 @@
 # YOURLS SAML Authentication
-Log in to [YOURLS](https://yourls.org) using your SAML IdP.
+Log in to [YOURLS (Your Own URL Shortener)](https://yourls.org) using your SAML IdP.
 
 Users authenticated by SAML have access to the whole admin interface, excluding the plugins manager, so you can use access rules at your IdP to control who can make short URLs.
 
 Admins have access to everything including the plugins manager. To make a user an admin, add their details to the `$yourls_user_passwords` array in your normal YOURLS config. Set their username to be the same as their SAML Name ID, and pick something long and random for the password since they're not going to be using that anyway.
 
-Single logout is not implemented.
+[Single logout is not implemented](https://github.com/wlabarron/yourls-saml/issues/1).
 
 ## Is this safe?
 **Probably.**
@@ -19,7 +19,7 @@ In short, **use at your own risk** and know that there's no warranty or guarante
 ## Installation
 Here's an overview. You'll have to modify to fit your environment.
 
-1. Copy this entire repo to your YOURLS plugin folder.
+1. [Download the latest release](https://github.com/wlabarron/yourls-saml/releases), decompress it, and copy the entire `yourls-saml` directory to your YOURLS plugin folder.
 2. Run `composer install` in the `yourls-saml` directory.
 3. Copy `settings_example.php` to `settings.php`. The file has comments inside which explains what each variable does. [OneLogin's documentation](https://developers.onelogin.com/saml/php) is also helpful.
     1. Set `$wlabarron_saml_yourls_base_url` to your YOURLS base URL (e.g. `https://sho.rt/`). Include the trailing slash.
