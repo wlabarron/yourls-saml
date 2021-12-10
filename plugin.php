@@ -3,7 +3,7 @@
 Plugin Name: SAML
 Plugin URI: https://github.com/wlabarron/yourls-saml
 Description: Log in to YOURLS using SAML.
-Version: 1.1
+Version: 1.2
 Author: Andrew Barron
 Author URI: https://awmb.uk
 */
