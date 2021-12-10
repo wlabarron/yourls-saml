@@ -3,7 +3,7 @@
 Plugin Name: SAML
 Plugin URI: https://github.com/wlabarron/yourls-saml
 Description: Log in to YOURLS using SAML.
-Version: 1.0
+Version: 1.1
 Author: Andrew Barron
 Author URI: https://awmb.uk
 */
@@ -12,8 +12,8 @@ yourls_add_filter('shunt_is_valid_user', 'wlabarron_saml_authenticate');
 function wlabarron_saml_authenticate() {
     if (!yourls_is_API()) { // Don't use SAML for API requests
         session_start();
-        require('vendor/autoload.php');
-        require_once('settings.php');
+        require(__DIR__ . '/vendor/autoload.php');
+        require(__DIR__ . '/settings.php');
         $auth = new \OneLogin\Saml2\Auth($wlabarron_saml_settings);
         
         // If not signed in, sign in
